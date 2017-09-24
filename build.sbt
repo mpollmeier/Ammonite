@@ -1,6 +1,18 @@
 import scalatex.ScalatexReadme
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.3-085be56899"
+resolvers in ThisBuild += "Artifactory release local" at "https://shiftleft.jfrog.io/shiftleft/libs-release-local"
+version in ThisBuild := "1.0.2-085be56899"
+version in sshd := "1.0.2-085be56899"
+version in ops := "1.0.2-085be56899"
+version in ammInterp := "1.0.2-085be56899"
+version in terminal := "1.0.2-085be56899"
+version in ammUtil := "1.0.2-085be56899"
+version in ammRuntime := "1.0.2-085be56899"
+version in integration := "1.0.2-085be56899"
+version in amm := "1.0.2-085be56899"
+version in shell := "1.0.2-085be56899"
+version in ammRepl := "1.0.2-085be56899"
 
 crossScalaVersions := Seq(
   "2.10.4", "2.10.5", "2.10.6", "2.11.3",
@@ -28,7 +40,7 @@ val macroSettings = Seq(
 
 val sharedSettings = Seq(
 
-  scalaVersion := "2.12.3",
+  scalaVersion := "2.12.3-085be56899",
   organization := "com.lihaoyi",
   version := _root_.ammonite.Constants.version,
   libraryDependencies += "com.lihaoyi" %% "utest" % "0.4.5" % Test,
@@ -54,7 +66,7 @@ val sharedSettings = Seq(
     "com.lihaoyi" %% "acyclic" % "0.1.7" % Provided
   ) ,
   publishTo := Some(
-    "releases" at "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+    "releases" at "https://shiftleft.jfrog.io/shiftleft/libs-release-local"
   ),
   pomExtra :=
     <url>https://github.com/lihaoyi/Ammonite</url>
@@ -343,7 +355,7 @@ lazy val readme = ScalatexReadme(
   source = "Index"
 ).settings(
   dontPublishSettings,
-  scalaVersion := "2.12.3",
+  scalaVersion := "2.12.3-085be56899",
   libraryDependencies += "com.lihaoyi" %% "fansi" % "0.2.3",
   (run in Compile) := (run in Compile).dependsOn(
     assembly in (amm, Test),
